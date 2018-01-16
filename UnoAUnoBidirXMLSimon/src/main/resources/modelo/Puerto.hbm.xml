@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.albarregas.beans.Puerto" table="Puerto1a1b">
+        <id name="id" type="java.lang.Long">
+            <column name="idPuerto"/>
+            <generator class="identity"/>               
+        </id>
+        <property name="numero" type="integer">
+            <column name="numero" length="30" not-null="true"/>
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="30" not-null="true"/>
+        </property>
+        <one-to-one cascade="all" name="servicio" class="es.albarregas.beans.Servicio"></one-to-one>
+    </class>
+</hibernate-mapping>

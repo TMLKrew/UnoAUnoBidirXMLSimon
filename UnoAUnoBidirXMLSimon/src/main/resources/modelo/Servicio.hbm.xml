@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.albarregas.beans.Servicio" table="Servicio1a1b">
+        <id name="id" type="java.lang.Long">
+            <column name="idServicio"/>
+           <generator class="foreign">
+               <param name="property">puerto</param>
+           </generator>
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" not-null="true"/>
+        </property>
+        <property name="path" type="string">
+            <column name="path" length="30" not-null="true"/>
+        </property>
+        <one-to-one name="puerto" constrained="true"/>
+    </class>
+</hibernate-mapping>
